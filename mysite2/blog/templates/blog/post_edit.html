@@ -1,0 +1,19 @@
+<!-- blog/base.html 내부에 끼워넣을 코드 -->
+{% extends 'blog/base.html' %}
+
+<!-- 그 쪽에서 content라고 작성된 부분에 끼워넣을 코드 -->
+{% block content %}
+    <h1>New post</h1>
+    <!-- form태그는 post방식으로 전달 -->
+    <form method="post" class="post-form">
+    	<!-- csrf_token은 post방식인경우 필수적으로 입력 -->
+    	{% csrf_token %}
+    		<!-- form에 받아온 목적지, 입력양식을
+    		.as_p 명령어로 화면에 출력 -->
+        	{{form.as_p}}
+        	<!-- 제출 버튼은 따로 만들어야함 -->
+        <button type="submit" class="save btn btn-default">
+        	Save
+        </button>
+    </form>
+{% endblock %}

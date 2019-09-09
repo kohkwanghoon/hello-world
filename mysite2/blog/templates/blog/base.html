@@ -1,0 +1,30 @@
+{% load static %}
+<!-- 정적파일(css, 이미지등)을 불러오는 코드 -->
+<html>
+	<head>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+	<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Sunflower:300&display=swap" rel="stylesheet">
+	<title>블로그 프로젝트</title>
+		
+	</head>
+	<body>
+	    <div class="page-header">
+	    	<a href="{% url 'post_new' %}" class="top-menu">
+	    		<span class="glyphicon glyphicon-pencil"/>
+	    	</a>
+	        <h1><a href="/">블로그 프로젝트</a></h1>
+	    </div>
+	    <div class="content container">
+	        <div class="row">
+	            <div class="col-md-8">
+	            {% block content %}
+	            {% endblock %}
+	            </div>
+	        </div>
+	    </div>
+	</body>
+</html>

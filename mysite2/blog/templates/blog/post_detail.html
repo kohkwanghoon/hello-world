@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	<div class="post">
+		{% if post.published_date %}
+			<div class="date">
+				{{ post.published_date }}
+			</div>
+		
+			<h1>{{ post.title }}</h1>
+			<p>{{ post.text|linebreaksbr }}</p>
+			<!-- 수정버튼 추가 코드 -->
+			<a class="btn btn-default"
+			href="{% url 'post_edit' pk=post.pk %}">
+				<span class="plyphicon glyphicon-edit"></span>
+			</a>
+			<!-- 삭제버튼 추가 코드 -->
+			<a class="btn btn-default"
+			href="{% url 'post_remove' pk=post.pk %}">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>	
+				
+		{% else %}
+			<h1>비공개 포스트입니다.</h1>
+		{% endif %}
+
+		
+	</div>
+{% endblock %}

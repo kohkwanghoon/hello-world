@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	{% for post in posts %}
+		<div class="post">
+			<div class="date">
+				<p>published: {{ post.published_date }}</p>
+			</div>
+	<!--아래 a태그의 href속성에 url링크를 넣어주세요. 'post_detail'이며 pk에 post.pk를 주소에 전달합니다. -->
+	        <h1><a href="{% url 'post_detail' post.pk %}">{{post.title}}</a></h1>
+	        <p>{{ post.text|linebreaksbr }}</p>
+		</div>
+	{% endfor %}
+{% endblock %}
+
